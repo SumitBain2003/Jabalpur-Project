@@ -1,0 +1,434 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Welcome to Jabalpur Tourism</title>
+  <link rel="icon" href="jabalpur images/siteicon1.png" type="image/png" />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Cinzel:wght@600&display=swap" rel="stylesheet" />
+
+  <style>
+    html { scroll-behavior: smooth; }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Montserrat', sans-serif;
+    }
+    body { background-color: #f0f4f8; color: #333; }
+
+    header {
+      position: relative;
+      background-image: url('https://t4.ftcdn.net/jpg/03/63/61/99/360_F_363619985_prPs5AJmsLUhzQ914eNR51yp3ymbBVFq.jpg');
+      background-size: cover;
+      background-position: center;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      color: white;
+      overflow: hidden;
+    }
+    header::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba(0,0,0,0.55);
+      backdrop-filter: blur(2px);
+      z-index: 0;
+    }
+
+    .hero-logo {
+      position: absolute;
+      top: 20px; left: 30px;
+      font-family: 'Cinzel', serif;
+      font-size: 2rem;
+      color: #fff;
+      font-weight: 600;
+      letter-spacing: 2px;
+      z-index: 11;
+      text-shadow: 1px 1px 4px rgba(0,0,0,0.6);
+    }
+
+    .header-content { position: relative; z-index: 1; padding: 0 20px; }
+    header h1 {
+      font-size: 4.5rem;
+      font-weight: 900;
+      margin-bottom: 1rem;
+      text-shadow: 3px 3px 10px rgba(0,0,0,0.9);
+    }
+    header p { font-size: 1.7rem; text-shadow: 2px 2px 8px rgba(0,0,0,0.8); }
+
+    .nav-container {
+      position: fixed;
+      top: 20px;
+      right: 30px;
+      z-index: 12;
+    }
+
+    .hamburger {
+      display: none;
+      font-size: 1.8rem;
+      color: white;
+      cursor: pointer;
+      z-index: 13;
+    }
+
+    .nav-container nav {
+      display: flex;
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(8px);
+      border-radius: 12px;
+      padding: 10px 20px;
+      gap: 20px;
+    }
+
+    nav#mainNav a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 1rem;
+      transition: color 0.3s;
+    }
+
+    nav#mainNav a:hover { color: #ffd700; }
+
+    @media (max-width: 768px) {
+      .nav-container nav {
+        display: none;
+        flex-direction: column;
+        background-color: rgba(0, 0, 0, 0.6);
+        position: absolute;
+        top: 40px;
+        right: 0;
+        width: 180px;
+        padding: 15px;
+        border-radius: 8px;
+        backdrop-filter: blur(8px);
+      }
+
+      .nav-container.active nav {
+        display: flex !important;
+      }
+
+      nav#mainNav a {
+        padding: 10px 0;
+        font-size: 1rem;
+      }
+
+      .hamburger {
+        display: block;
+      }
+    }
+
+    @media (min-width: 769px) {
+      .hamburger {
+        display: none;
+      }
+    }
+
+    .section-heading {
+      font-family: 'Cinzel', serif;
+      font-size: 2.8rem;
+      color: #b88900;
+      text-align: center;
+      margin: 0 auto 50px;
+      font-weight: 600;
+      text-transform: uppercase;
+      position: relative;
+    }
+
+    .section-heading::after {
+      content: "";
+      width: 100px; height: 4px;
+      background: #b88900;
+      display: block;
+      margin: 10px auto 0;
+      border-radius: 2px;
+    }
+
+    section.features {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 40px;
+      padding: 80px 60px;
+      background-color: #fff;
+    }
+
+    .feature {
+      background: #fff;
+      border-radius: 15px;
+      overflow: hidden;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.1);
+      transform: translateY(20px);
+      opacity: 0;
+      animation: fadeInCard 1s ease forwards;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      will-change: transform;
+    }
+
+    .feature:hover {
+      transform: scale(1.08) translateY(-10px);
+      box-shadow: 0 20px 45px rgba(0,0,0,0.25);
+      z-index: 5;
+    }
+
+    .feature:nth-child(2){ animation-delay:0.2s; }
+    .feature:nth-child(3){ animation-delay:0.4s; }
+    .feature:nth-child(4){ animation-delay:0.6s; }
+
+    @keyframes fadeInCard { to { transform: translateY(0); opacity: 1; } }
+
+    .feature img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+    }
+
+    .feature-content { padding: 25px; }
+    .feature-content h3 {
+      color: #1479c9;
+      margin-bottom: 10px;
+      font-size: 1.3rem;
+    }
+    .feature-content p { font-size: 0.95rem; color: #555; line-height: 1.6; }
+
+    .feature:active {
+      box-shadow: 0 0 0 5px rgba(255, 215, 0, 0.4), 0 0 20px rgba(255, 215, 0, 0.5);
+      transform: scale(0.98);
+      transition: all 0.1s ease;
+    }
+
+    footer {
+      text-align: center;
+      padding: 25px;
+      background-color: #1479c9;
+      color: #fff;
+      font-size: 0.9rem;
+    }
+
+    .hero-credit {
+      position: absolute;
+      bottom: 15px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-family: 'Cinzel', serif;
+      font-size: 1rem;
+      color: #ffffffcc;
+      letter-spacing: 0.5px;
+      text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.6);
+      z-index: 2;
+      opacity: 0.9;
+    }
+
+    .hero-search {
+      position: absolute;
+      top: 100px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      gap: 10px;
+      z-index: 11;
+    }
+
+    .hero-search input {
+      padding: 10px 20px;
+      font-size: 1rem;
+      border-radius: 25px;
+      border: none;
+      width: 260px;
+      backdrop-filter: blur(8px);
+      background: rgba(255, 255, 255, 0.2);
+      color: #fff;
+      outline: none;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    }
+
+    .hero-search input::placeholder { color: #eee; }
+
+    .hero-search button {
+      padding: 10px 20px;
+      border-radius: 25px;
+      border: none;
+      background-color: #ffd700;
+      color: #000;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .hero-search button:hover {
+      background-color: #e6c200;
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <div class="hero-logo">JABALPUR TOURISM</div>
+
+    <div class="nav-container">
+      <div class="hamburger" onclick="toggleMenu()">☰</div>
+      <nav id="mainNav">
+        <a href="#">Home</a>
+        <a href="#spots">Tourist Spots</a>
+        <a href="history.html">History</a>
+        <a href="about.html">About us</a>
+      </nav>
+    </div>
+
+    <div class="hero-search">
+      <input type="text" id="searchInput" placeholder="Search Tourist Spot..." />
+      <button onclick="searchSpot()">Search</button>
+    </div>
+
+    <div class="header-content">
+      <h1>Welcome to Jabalpur</h1>
+      <p>The Marble City of Madhya Pradesh</p>
+    </div>
+
+    <div class="hero-credit">Developed By – Sumit Bain & Pranjal Patel</div>
+  </header>
+
+   <h2 class="section-heading">Tourist Spots</h2>
+  <section class="features" id="spots">
+
+    <a href="bhedaghat.html" style="text-decoration:none;color:inherit;">
+      <div class="feature">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/7/71/Bhedaghat_Jbp.jpg" alt="Bhedaghat" />
+        <div class="feature-content">
+          <h3>Bhedaghat</h3>
+          <p>Explore the magnificent marble rocks and enjoy boating in the Narmada River.</p>
+        </div>
+      </div>
+    </a>
+
+    <a href="dhuadhar.html" style="text-decoration:none;color:inherit;">
+      <div class="feature">
+        <img src="https://media2.thrillophilia.com/images/photos/000/235/783/original/1587468071_Dhuandhar-Falls.jpg?width=1600&height=775" alt="Dhuandhar Falls" />
+        <div class="feature-content">
+          <h3>Dhuandhar Waterfall</h3>
+          <p>Witness the stunning smoky waterfalls that roar with glory in monsoons.</p>
+        </div>
+      </div>
+    </a>
+
+    <a href="madanmahal.html" style="text-decoration:none;color:inherit;">
+      <div class="feature">
+        <img src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/10/80/1a/e4/psx-20170831-233608-largejpg.jpg?w=1200&h=1200&s=1" alt="Madan Mahal Fort" />
+        <div class="feature-content">
+          <h3>Madan Mahal Fort</h3>
+          <p>A historic hilltop fort with panoramic views of the city and fascinating history.</p>
+        </div>
+      </div>
+    </a>
+
+    <a href="shivstatue.html" style="text-decoration:none;color:inherit;">
+      <div class="feature">
+        <img src="https://jabalpurwala.com/wp-content/uploads/2017/12/2795462353_526a7f8d05_o-1024x683.jpg" alt="Shiv Statue" />
+        <div class="feature-content">
+          <h3>Kachnar City Shiv Statue</h3>
+          <p>A massive 76‑feet Lord Shiva statue, a spiritual attraction of Jabalpur.</p>
+        </div>
+      </div>
+    </a>
+
+    <a href="bargi.html" style="text-decoration:none;color:inherit;">
+      <div class="feature">
+        <img src="https://static.wixstatic.com/media/ed9266_e7a32461a6ba43b0b36cc39716ca9d3d~mv2.jpg/v1/fill/w_752,h_446,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/ed9266_e7a32461a6ba43b0b36cc39716ca9d3d~mv2.jpg" alt="Bargi Dam" />
+        <div class="feature-content">
+          <h3>Bargi Dam</h3>
+          <p>Bargi Dam of Jabalpur is a major water source and scenic boating spot on the Narmada River.</p>
+        </div>
+      </div>
+    </a>
+
+    <a href="pisanhari.html" style="text-decoration:none;color:inherit;">
+      <div class="feature">
+        <img src="https://media-cdn.tripadvisor.com/media/photo-s/1b/14/b9/1c/img20191214140828-largejpg.jpg" alt="Pisanhari ki Madhiya" />
+        <div class="feature-content">
+          <h3>Pisanhari ki Madhiya</h3>
+          <p>Historic Jain temple built by a woman who saved money from grinding grain. A place of peace and devotion.</p>
+        </div>
+      </div>
+    </a>
+
+    <a href="gwarighat.html" style="text-decoration:none;color:inherit;">
+      <div class="feature">
+        <img src="https://www.trawell.in/admin/images/upload/433308696Jabalpur_Gwari_Ghat_Main.jpg" alt="Gwarighat" />
+        <div class="feature-content">
+          <h3>Gwarighat</h3>
+          <p>Aarti at Narmada riverbank with spiritual significance, cremation grounds, and temples.</p>
+        </div>
+      </div>
+    </a>
+
+    <a href="jogani.html" style="text-decoration:none;color:inherit;">
+      <div class="feature">
+        <img src="https://feeds.abplive.com/onecms/images/uploaded-images/2022/11/11/032b2cc936860b03048302d991c3498f30bcb.jpg?impolicy=abp_cdn&imwidth=800" alt="Chosath Jogani Temple" />
+        <div class="feature-content">
+          <h3>Chosath Jogani Temple</h3>
+          <p>Ancient temple from the 10th century, circular design, dedicated to 64 Yoginis powerful divine figures.</p>
+        </div>
+      </div>
+    </a>
+
+  </section>
+
+
+  <footer>
+    &copy; 2025 Jabalpur Tourism Board. All Rights Reserved.
+  </footer>
+
+  <script>
+    function toggleMenu() {
+      document.querySelector(".nav-container").classList.toggle("active");
+    }
+
+    document.addEventListener("DOMContentLoaded", function () {
+      const navContainer = document.querySelector(".nav-container");
+      const navLinks = document.querySelectorAll("#mainNav a");
+
+      navLinks.forEach(link => {
+        link.addEventListener("click", () => {
+          navContainer.classList.remove("active");
+        });
+      });
+
+      document.addEventListener("click", function (e) {
+        const isClickInsideNav = navContainer.contains(e.target);
+        const isHamburger = e.target.classList.contains("hamburger");
+        if (!isClickInsideNav && !isHamburger) {
+          navContainer.classList.remove("active");
+        }
+      });
+    });
+
+    function searchSpot() {
+      const query = document.getElementById("searchInput").value.toLowerCase().trim();
+      const spots = {
+        "bhedaghat": "bhedaghat.html",
+        "dhuandhar": "dhuadhar.html",
+        "madan mahal": "madanmahal.html",
+        "shiv statue": "shivstatue.html",
+        "kachnar city": "shivstatue.html",
+        "bargi": "bargi.html",
+        "pisanhari": "pisanhari.html",
+        "gwarighat": "gwarighat.html",
+        "jogani": "jogani.html",
+        "about": "about.html",
+        "history": "history.html",
+        "64 yogini": "jogani.html"
+      };
+      if (spots[query]) {
+        window.location.href = spots[query];
+      } else {
+        alert("Spot not found. Please try another name.");
+      }
+    }
+  </script>
+
+</body>
+</html>

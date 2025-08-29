@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>About Us - Jabalpur Tourism</title>
+  <link rel="icon" href="jabalpur images/siteicon1.png" type="image/png" />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Cinzel:wght@600&display=swap" rel="stylesheet" />
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Montserrat', sans-serif;
+      background-color: #f9f9f9;
+      color: #333;
+    }
+
+    nav {
+      background: #0c2d48;
+      padding: 15px 40px;
+      display: flex;
+      justify-content: flex-end;
+      gap: 30px;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 1rem;
+      transition: color 0.3s;
+    }
+
+    nav a:hover {
+      color: #ffd700;
+    }
+
+    header {
+      background-image: url('https://images.unsplash.com/photo-1532298488760-970ff6decf61?auto=format&fit=crop&w=1470&q=80');
+      background-size: cover;
+      background-position: center;
+      height: 65vh;
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      text-align: center;
+    }
+
+    header::before {
+      content: "";
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0, 0, 0, 0.6);
+      z-index: 0;
+    }
+
+    header h1 {
+      z-index: 1;
+      font-size: 3.5rem;
+      font-family: 'Cinzel', serif;
+      text-shadow: 2px 2px 6px rgba(0,0,0,0.7);
+      border-bottom: 3px solid #ffd700;
+      padding-bottom: 10px;
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: 60px auto;
+      padding: 0 20px;
+    }
+
+    .section {
+      background: white;
+      padding: 40px;
+      border-radius: 12px;
+      box-shadow: 0 4px 30px rgba(0,0,0,0.08);
+      margin-bottom: 40px;
+    }
+
+    .section h2 {
+      font-family: 'Cinzel', serif;
+      font-size: 2rem;
+      color: #b88900;
+      text-align: center;
+      margin-bottom: 25px;
+    }
+
+    .profile-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 40px;
+      margin-top: 20px;
+    }
+
+    .profile {
+      text-align: center;
+    }
+
+    .profile img {
+      width: 140px;
+      height: 140px;
+      border-radius: 50%;
+      object-fit: cover;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+      margin-bottom: 15px;
+    }
+
+    .profile h3 {
+      margin: 10px 0 5px;
+      font-size: 1.2rem;
+      color: #0c2d48;
+    }
+
+    .profile p.role {
+      font-size: 0.95rem;
+      font-weight: bold;
+      color: #777;
+      margin-bottom: 10px;
+    }
+
+    .profile p.desc {
+      font-size: 0.95rem;
+      color: #555;
+      text-align: justify;
+      padding: 0 10px;
+      margin-bottom: 10px;
+    }
+
+    .profile .info {
+      font-size: 0.9rem;
+      color: #444;
+      line-height: 1.5;
+    }
+
+    footer {
+      text-align: center;
+      padding: 25px;
+      background-color: #0c2d48;
+      color: white;
+      font-size: 0.9rem;
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="history.html">History</a>
+    <a href="about.html">About Us</a>
+  </nav>
+
+  <header>
+    <h1>Meet the Creators</h1>
+  </header>
+
+  <div class="container">
+
+    <div class="section">
+      <h2>About This Project</h2>
+      <p style="text-align: justify; font-size: 1.05rem; color: #444;">
+        This website is proudly created as part of our college minor project. A creative journey by <strong>Sumit Bain</strong> and <strong>Pranjal Patel</strong>. We are passionate about showcasing the natural beauty and historical richness of Jabalpur, the Marble City of Madhya Pradesh. Our goal is to promote awareness, tourism, and appreciation for the city we love.
+      </p>
+    </div>
+
+    <div class="section">
+      <h2>Core Team</h2>
+      <div class="profile-grid">
+
+        <div class="profile">
+          <img src="jabalpur images/SBlogo.svg" alt="SB Avatar" />
+          <h3>Sumit Bain</h3>
+          <p class="role">Web Developer & UI/UX Designer</p>
+          <p class="desc">
+            Sumit is the creative and technical mind behind the design and development of the Jabalpur Tourism website. With a strong passion for clean, user-friendly interfaces and modern web practices, he ensured that every part of the platform is both beautiful and functional.
+          </p>
+          <div class="info">
+             <strong>College:</strong> Kalaniketan Polytechnic College, Jabalpur<br />
+             <strong>Branch:</strong> Information Technology, 4th Semester<br />
+             <strong>City:</strong> Jabalpur, Madhya Pradesh<br />
+             <strong>Interests:</strong> Design, Coding, Travel, Gaming<br />
+             <strong>Email:</strong> sumitbain2003@gmail.com
+          </div>
+        </div>
+
+        <div class="profile">
+          <img src="jabalpur images/pranjal.jpg" alt="Pranjal Patel">
+          <h3>Pranjal Patel</h3>
+          <p class="role">Project Coordinator</p>
+          <p class="desc">
+            Pranjal brought the soul of the project to life with his deep research, structured planning, and dedication to Jabalpur's cultural roots. His contribution made the project informative, factually strong, and well-organized. A true reflection of Jabalpur's spirit.
+          </p>
+          <div class="info">
+             <strong>College:</strong> Kalaniketan Polytechnic College, Jabalpur<br />
+             <strong>Branch:</strong> Information Technology, 4th Semester<br />
+             <strong>City:</strong> Sihora, Madhya Pradesh<br />
+             <strong>Interests:</strong> Reading, Documentation, History, Exploration<br />
+             <strong>Email:</strong> patelpranjal723@gmail.com
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+
+  <footer>
+    &copy; 2025 Jabalpur Tourism Board. All Rights Reserved.
+  </footer>
+
+</body>
+</html>
